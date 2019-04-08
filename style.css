@@ -1,0 +1,19 @@
+body {
+  margin: auto;
+  background-color: burlywood;
+  height: 100vh
+}
+
+header{
+  height: 13vh;
+  background-color: #A93B3B;
+  font-family: 'Playball', cursive;
+  font-size: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1{
+  margin: 0%;
+  font-size: 8vh;
+}

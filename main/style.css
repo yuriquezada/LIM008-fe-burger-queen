@@ -1,0 +1,77 @@
+body {
+  margin: auto;
+  background-color: burlywood;
+  height: 100vh;
+  display: flex;
+}
+/* Primera sección */
+.burger-queen{
+  width: 55%;
+}
+.header1{
+  height: 15%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.logo{
+  padding-left: 2%;
+  width: 38%;
+}
+.options{
+  width: 65%;
+  padding: 0%;
+  display: flex;
+  justify-content: space-evenly
+}
+.options img{
+  width: 30%;
+  height: 30%;
+  padding: 3%
+}
+.options img:hover{
+  color: brown;
+  background-color: antiquewhite
+}
+
+
+/* Segunda sección */
+
+.order-list{
+  width: 45%;
+  background-color: #4B4949;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.order-list h1, .order-list h2, .order-list h3{
+  margin: 0%
+}
+.order-list h1{
+  font-size: 30px;
+  padding: 30px;
+  text-align: center
+}
+.order-list h2{
+  padding: 15px;
+  background-color: #3C3838
+}
+.order-list ul{
+  padding: 0px;
+  margin: 0%
+}
+.order-list li{
+  list-style: none;
+  margin: 30px 40px 30px 40px;
+  border-bottom: black solid 2px
+}
+.order-list h3{
+  margin-bottom: 10px
+}
+.numbers-order{
+  font-size: 20px;
+  display: flex;
+  justify-content:space-evenly
+}
+
+
