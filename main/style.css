@@ -15,25 +15,31 @@ body {
   align-items: center;
 }
 .logo{
-  padding-left: 2%;
-  width: 38%;
+  padding: 0% 5% 0% 6%;
+  height: 100%;
+}
+.options, .options ul, .options li{
+  height: 100%;
 }
 .options{
-  width: 65%;
-  padding: 0%;
+  width: 100%;
+}
+.options ul{
+  text-align: center;
   display: flex;
-  justify-content: space-evenly
+  margin: 0%;
+  padding: 0%;
 }
-.options img{
-  width: 30%;
-  height: 30%;
-  padding: 3%
+.options li{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.options img:hover{
-  color: brown;
-  background-color: antiquewhite
+.options li a {
+  text-decoration: none
 }
-
 
 /* Segunda sección */
 
