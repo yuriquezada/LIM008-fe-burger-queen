@@ -1,5 +1,6 @@
-import { templatesObject } from './lib/templates.js'
-templatesObject
+import { pageWelcome } from './lib/template-welcome.js'
+import { pageAlmuerzo } from './lib/template-almuerzo.js';
+import { pageDesayuno } from './lib/template-desayuno.js';
 
 export const changeHash = (nameHash) => {
   window.location.hash = nameHash;
@@ -18,7 +19,7 @@ const changeRouter = (hash) => {
 
 const showTemplate = (routers) => {
   const router = routers.substr(2, routers.length - 2)
-  const container = document.getElementById("container")
+  const container = document.getElementById("menu")
   container.innerHTML = '';
   switch (router) {
     case 'welcome':
@@ -42,7 +43,7 @@ const showTemplate = (routers) => {
   }
 };
 
-export const initRouterPetbook = () => {
+export const initializeBurgerRouter = () => {
   //window, cuando escuches al evento'load', 
   //o sea, cuando te recargues, ejecútame 
   //esta función 
@@ -51,22 +52,3 @@ export const initRouterPetbook = () => {
     window.onhashchange = () => changeRouter(window.location.hash)
   };
 }
-
-// const changeTemplate = (hash) => {
-//   if (hash === '#/' || hash === '' || hash === '#') {
-//     return viewTemplate('#/pedidos');
-//   } else if (hash === '#/desayuno' || hash === '#/almuerzo') {
-//     return viewTemplate(hash)
-//   } else {
-//     return viewTemplate('#/different');
-//   }
-// }
-
-// const viewTemplate = (routers) => {
-//   const router = routers.substr(2, routers.length - 2);
-//   const menu = document.getElementById("menu")
-//   menu.innerHTML = templatesObject[router];
-// }
-
-// window.addEventListener('load', changeTemplate(window.location.hash))
-// if (("onhashchange" in window)) window.onhashchange = () => changeTemplate(window.location.hash)
