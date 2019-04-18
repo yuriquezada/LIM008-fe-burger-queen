@@ -1,83 +1,19 @@
-body {
-  margin: auto;
-  background-color: burlywood;
-  height: 100vh;
+li{
+  background-color: bisque;
+  width:200px;
+  border: 1px solid black
+}
+ul{
   display: flex;
-}
-/* Primera sección */
-.burger-queen{
-  width: 55%;
-}
-.header1{
-  height: 15%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-}
-.logo{
-  padding: 0% 5% 0% 6%;
-  height: 100%;
-}
-.options, .options ul, .options li{
-  height: 100%;
-}
-.options{
-  width: 100%;
-}
-.options ul{
-  text-align: center;
-  display: flex;
-  margin: 0%;
-  padding: 0%;
-}
-.options li{
-  width: 100%;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.options li a {
-  text-decoration: none
-}
-
-/* Segunda sección */
-
-.order-list{
-  width: 45%;
-  background-color: #4B4949;
-  color: #FFFFFF;
-  font-family: 'Montserrat', sans-serif;
-
-}
-.order-list h1, .order-list h2, .order-list h3{
   margin: 0%
 }
-.order-list h1{
-  font-size: 30px;
-  padding: 30px;
-  text-align: center
-}
-.order-list h2{
-  padding: 15px;
-  background-color: #3C3838
-}
-.order-list ul{
-  padding: 0px 40px 0px 40px;
+.nav-2{
+  background-color: greenyellow;
+  width: 400px;
   margin: 0%
 }
-.order-list li{
-  list-style: none;
-  padding: 30px 0px 30px 0px;
-  border-bottom: black solid 2px
+article{
+  background-color: goldenrod;
+  width:200px;
+  border: 1px solid black
 }
-.order-list h3{
-  margin-bottom: 10px
-}
-.numbers-order{
-  font-size: 20px;
-  display: flex;
-  justify-content:space-evenly
-}
-
-

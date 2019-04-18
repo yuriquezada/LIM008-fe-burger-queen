@@ -1,38 +1,55 @@
-import { initializeBurgerRouter } from './route.js';
+/*--------------------DESAYUNO----------------------*/
 
-const initialize = () => {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCtgymKSWV62YN8zimGsMlfDc0mruTi2qM",
-        authDomain: "burguer-queen-234c8.firebaseapp.com",
-        databaseURL: "https://burguer-queen-234c8.firebaseio.com",
-        projectId: "burguer-queen-234c8",
-        storageBucket: "burguer-queen-234c8.appspot.com",
-        messagingSenderId: "41829269712"
-    };
-    firebase.initializeApp(config);
-    initializeBurgerRouter();
+const showUlD = () => {
+  const ulElem = document.createElement('ul');
+
+  const liSandwich = document.createElement('li');
+  liSandwich.classList.add('li-sandwich');
+  liSandwich.innerHTML = `Sandwich`;
+
+  const liBebidasD = document.createElement('li');
+  liBebidasD.classList.add('li-bebidas-d');
+  liBebidasD.innerHTML = `Bebidas`;
+
+  ulElem.classList.add('ul-Desayuno');
+  ulElem.appendChild(liSandwich);
+  ulElem.appendChild(liBebidasD);
+
+  return ulElem;
 }
 
+const desayuno = document.getElementById('desayuno');
+desayuno.addEventListener('click', () => {
+  const nav2 = document.getElementById("nav2");
+  nav2.innerHTML = '';
+  menu.innerHTML = '';
+  nav2.appendChild(showUlD());
+})
 
-window.addEventListener('load', initialize)
+/*--------------------ALMUERZO----------------------*/
 
+const showUlA = () => {
+  const ulElem = document.createElement('ul');
 
-// /*-----------------------------------------------------------*/
+  const liHamburguesa = document.createElement('li');
+  liHamburguesa.classList.add('li-hamburguesa');
+  liHamburguesa.innerHTML = `Hamburguesas`;
 
-// import { initRouterPetbook } from './route.js';
+  const liBebidasA = document.createElement('li');
+  liBebidasA.classList.add('li-bebidas-a');
+  liBebidasA.innerHTML = `Bebidas`;
 
-// const inicializa = () => {
-//     var config = {
-//         apiKey: "AIzaSyCaSZCOTrO0WcdvI7sCVPNE5p6eiGj7tB4",
-//         authDomain: "petbook-cbdd2.firebaseapp.com",
-//         databaseURL: "https://petbook-cbdd2.firebaseio.com",
-//         projectId: "petbook-cbdd2",
-//         storageBucket: "petbook-cbdd2.appspot.com",
-//         messagingSenderId: "158794772915"
-//     };
-//     firebase.initializeApp(config);
-//     initRouterPetbook();
-// }
+  ulElem.classList.add('ul-Almuerzo');
+  ulElem.appendChild(liBebidasA);
+  ulElem.appendChild(liHamburguesa);
 
-// window.addEventListener('load', inicializa)
+  return ulElem;
+}
+
+const almuerzo = document.getElementById('almuerzo');
+almuerzo.addEventListener('click', () => {
+  const nav2 = document.getElementById("nav2");
+  nav2.innerHTML = '';
+  menu.innerHTML = '';
+  nav2.appendChild(showUlA());
+})
