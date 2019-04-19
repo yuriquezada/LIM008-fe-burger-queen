@@ -1,19 +1,28 @@
+const appendChildren = (childrenArray, element) => {
+  childrenArray.forEach(child => {
+    return element.appendChild(child);
+  });
+}
+
+const createElement = (tagNameString, classNameString, content) => {
+  const element = document.createElement(tagNameString);
+  element.classList.add(classNameString);
+  element.innerHTML = content;
+  return element;
+}
+
 /*--------------------DESAYUNO----------------------*/
 
 const showUlD = () => {
   const ulElem = document.createElement('ul');
-
-  const liSandwich = document.createElement('li');
-  liSandwich.classList.add('li-sandwich');
-  liSandwich.innerHTML = `Sandwich`;
-
-  const liBebidasD = document.createElement('li');
-  liBebidasD.classList.add('li-bebidas-d');
-  liBebidasD.innerHTML = `Bebidas`;
-
   ulElem.classList.add('ul-Desayuno');
-  ulElem.appendChild(liSandwich);
-  ulElem.appendChild(liBebidasD);
+
+  const liSandwich = createElement('li', 'li-sandwich', `Sandwich`);
+  const liBebidasD = createElement('li', 'li-bebidas-d', `Bebidas`);
+
+  const ul2 = [liSandwich, liBebidasD]
+
+  appendChildren(ul2, ulElem);
 
   return ulElem;
 }
@@ -31,13 +40,8 @@ desayuno.addEventListener('click', () => {
 const showUlA = () => {
   const ulElem = document.createElement('ul');
 
-  const liHamburguesa = document.createElement('li');
-  liHamburguesa.classList.add('li-hamburguesa');
-  liHamburguesa.innerHTML = `Hamburguesas`;
-
-  const liBebidasA = document.createElement('li');
-  liBebidasA.classList.add('li-bebidas-a');
-  liBebidasA.innerHTML = `Bebidas`;
+  const liHamburguesa = createElement('li', 'li-hamburguesa', `Hamburguesas`);
+  const liBebidasA = createElement('li', 'li-bebidas-a', `Bebidas`);
 
   ulElem.classList.add('ul-Almuerzo');
   ulElem.appendChild(liBebidasA);
