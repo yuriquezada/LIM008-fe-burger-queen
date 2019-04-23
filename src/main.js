@@ -1,4 +1,4 @@
-import { nodoA, nodoD, desayuno, almuerzo, showNav } from "./lib/tabs.js";
+import { nodoA, nodoD, desayuno, almuerzo, showNav, liHamburguesa} from "./lib/tabs.js";
 
 
 var config = {
@@ -14,10 +14,12 @@ firebase.initializeApp(config);
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
+showNav(desayuno, nodoD);
+showNav(almuerzo, nodoA);
+
 const sectionElem = document.getElementById('menu');
 
-// const hamburguesa = document.getElementById('liHamburguesa');
-// hamburguesa.addEventListener('click', () => {
+liHamburguesa.addEventListener('click', () => {
 
   db.collection("menu/almuerzo-cena/hamburguesas")
     .onSnapshot((querySnapshot) => {
@@ -32,8 +34,6 @@ const sectionElem = document.getElementById('menu');
                               `
       });
     });
-// })
+})
 
 
-showNav(desayuno, nodoD);
-showNav(almuerzo, nodoA);

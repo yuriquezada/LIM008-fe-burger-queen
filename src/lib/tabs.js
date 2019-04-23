@@ -36,12 +36,12 @@ export const nodoD = appendChildren(ulElemD, ul2D)
 /*--------------------ALMUERZO----------------------*/
 
 export const almuerzo = document.getElementById('almuerzo');
-const ulElemA = createElement('ul', 'ul-desayuno', ' ');
-const liHamburguesa = createElement('li', 'li-hamburguesa', `<a><img src="../src/img/hamburger.png"><h5>HAMBURGUESA</h5></a>`);
-liHamburguesa.id = 'liHamburguesa'
-const acompañamientos = createElement('li', 'acompañamientos', `<a><img src="../src/img/hamburger.png"><h5>ACOMPAÑAMIENTOS</h5></a>`);
-liHamburguesa.id = 'acompañamiento'
-const liBebidasA = createElement('li', 'li-bebidas-a', `<a><img src="../src/img/hamburger.png"><h5>BEBIDAS</h5></a>`);
-liHamburguesa.id = 'bebidaA'
+const ulElemA = createElement('ul', 'ul-almuerzo', ' ');
+export const liHamburguesa = createElement('li', 'li-hamburguesa', `<a><img src="../src/img/hamburger.png"><h5>HAMBURGUESA</h5></a>`);
+liHamburguesa.id = 'liHamburguesa';
+const acompañamientos = createElement('li', 'acompañamientos', `<a><img src="../src/img/acompañamientos.png"><h5>ACOMPAÑAMIENTOS</h5></a>`);
+acompañamientos.id = 'acompañamiento'
+const liBebidasA = createElement('li', 'li-bebidas-a', `<a><img src="../src/img/bebidas-a.png"><h5>BEBIDAS</h5></a>`);
+liBebidasA.id = 'bebidaA'
 const ul2A = [liHamburguesa, acompañamientos, liBebidasA];
 export const nodoA = appendChildren(ulElemA, ul2A)
