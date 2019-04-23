@@ -1,4 +1,4 @@
-import { nodoA, nodoD, desayuno, almuerzo, showNav, liSandwich, liHamburguesa, liBebidasD, acompañamientos, liBebidasA } from "./lib/tabs.js";
+import { nodoA, nodoD, desayuno, almuerzo, showNav, liSandwich, liHamburguesa, liBebidasD, acompañamientos, liBebidasA, createElement } from "./lib/tabs.js";
 
 
 var config = {
@@ -19,18 +19,15 @@ showNav(almuerzo, nodoA);
 
 const showMenu = (element, path) => {
   const sectionElem = document.getElementById('menu');
-  element.addEventListener('click', () => {  
+  element.addEventListener('click', () => {
     db.collection(path)
       .onSnapshot((querySnapshot) => {
         sectionElem.innerHTML = '';
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data()}`);
-          sectionElem.innerHTML += `<article class="product">
-                                   <img src="${doc.data().image}" alt="">
-                                  <p>${doc.data().item}</p>
-                                  <p>$ ${doc.data().precio}</p>
-                                </article> 
-                                `
+          const product = createElement('article', 'product', `<img src="${doc.data().image}" alt=""><p>${doc.data().item}</p><p>$ ${doc.data().precio}</p>`)
+          product.id = `${doc.id}`
+          sectionElem.appendChild(product);
         });
       });
   })
@@ -42,4 +39,11 @@ showMenu(liHamburguesa, "menu/almuerzo-cena/hamburguesas");
 showMenu(acompañamientos, "menu/almuerzo-cena/acompañamientos");
 showMenu(liBebidasA, "menu/almuerzo-cena/bebidas");
 
+const orderArray = [];
 
+const pedido = document.getElementById(1)
+pedido.addEventListener('click', () => {
+  orderArray.push(3)
+})
+
+console.log(orderArray);

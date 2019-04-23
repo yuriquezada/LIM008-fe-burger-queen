@@ -5,7 +5,7 @@ const appendChildren = (element, childrenArray) => {
   return element;
 }
 
-const createElement = (tagNameString, classNameString, content) => {
+export const createElement = (tagNameString, classNameString, content) => {
   const element = document.createElement(tagNameString);
   element.classList.add(classNameString);
   element.innerHTML = content;
