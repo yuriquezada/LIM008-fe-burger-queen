@@ -1,4 +1,4 @@
-import { nodoA, nodoD, desayuno, almuerzo, showNav, liHamburguesa} from "./lib/tabs.js";
+import { nodoA, nodoD, desayuno, almuerzo, showNav, liSandwich, liHamburguesa, liBebidasD, acompañamientos, liBebidasA } from "./lib/tabs.js";
 
 
 var config = {
@@ -17,23 +17,29 @@ var db = firebase.firestore();
 showNav(desayuno, nodoD);
 showNav(almuerzo, nodoA);
 
-const sectionElem = document.getElementById('menu');
-
-liHamburguesa.addEventListener('click', () => {
-
-  db.collection("menu/almuerzo-cena/hamburguesas")
-    .onSnapshot((querySnapshot) => {
-      sectionElem.innerHTML = '';
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        sectionElem.innerHTML += `<article class="product">
-                                 <img src="${doc.data().image}" alt="">
-                                <p>${doc.data().item}</p>
-                                <p>$ ${doc.data().precio}</p>
-                              </article> 
-                              `
+const showMenu = (element, path) => {
+  const sectionElem = document.getElementById('menu');
+  element.addEventListener('click', () => {  
+    db.collection(path)
+      .onSnapshot((querySnapshot) => {
+        sectionElem.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`);
+          sectionElem.innerHTML += `<article class="product">
+                                   <img src="${doc.data().image}" alt="">
+                                  <p>${doc.data().item}</p>
+                                  <p>$ ${doc.data().precio}</p>
+                                </article> 
+                                `
+        });
       });
-    });
-})
+  })
+}
+
+showMenu(liSandwich, "menu/desayuno/sandwich");
+showMenu(liBebidasD, "menu/desayuno/bebidas");
+showMenu(liHamburguesa, "menu/almuerzo-cena/hamburguesas");
+showMenu(acompañamientos, "menu/almuerzo-cena/acompañamientos");
+showMenu(liBebidasA, "menu/almuerzo-cena/bebidas");
 
 

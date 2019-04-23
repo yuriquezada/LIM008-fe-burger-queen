@@ -66,10 +66,12 @@ li{
 .menu{
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   padding: 30px
 }
 
 .product{
+  margin-top: 25px;
   text-align: center;
   background: rgba(72, 61, 61, 0.91);
   border-radius: 20px;
