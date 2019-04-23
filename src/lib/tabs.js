@@ -25,8 +25,10 @@ export const showNav = (element, child) => {
 
 export const desayuno = document.getElementById('desayuno');
 const ulElemD = createElement('ul', 'ul-desayuno', ' ');
-const liSandwich = createElement('li', 'li-sandwich', `Sandwich`);
-const liBebidasD = createElement('li', 'li-bebidas-d', `Bebidas`);
+const liSandwich = createElement('li', 'li-sandwich', `<a><img src="../src/img/hamburger.png"><h5>SANDWICH</h5></a>`);
+liSandwich.id = 'liSandwich'
+const liBebidasD = createElement('li', 'li-bebidas-d', `<a><img src="../src/img/hamburger.png"><h5>BEBIDAS</h5></a>`);
+liBebidasD.id = 'liBebidasD'
 const ul2D = [liSandwich, liBebidasD];
 export const nodoD = appendChildren(ulElemD, ul2D)
 
@@ -35,8 +37,11 @@ export const nodoD = appendChildren(ulElemD, ul2D)
 
 export const almuerzo = document.getElementById('almuerzo');
 const ulElemA = createElement('ul', 'ul-desayuno', ' ');
-const liHamburguesa = createElement('li', 'li-hamburguesa', `Hamburguesas`);
-const acompañamientos = createElement('li', 'acompañamientos', `Acompañamientos`);
-const liBebidasA = createElement('li', 'li-bebidas-a', `Bebidas`);
+const liHamburguesa = createElement('li', 'li-hamburguesa', `<a><img src="../src/img/hamburger.png"><h5>HAMBURGUESA</h5></a>`);
+liHamburguesa.id = 'liHamburguesa'
+const acompañamientos = createElement('li', 'acompañamientos', `<a><img src="../src/img/hamburger.png"><h5>ACOMPAÑAMIENTOS</h5></a>`);
+liHamburguesa.id = 'acompañamiento'
+const liBebidasA = createElement('li', 'li-bebidas-a', `<a><img src="../src/img/hamburger.png"><h5>BEBIDAS</h5></a>`);
+liHamburguesa.id = 'bebidaA'
 const ul2A = [liHamburguesa, acompañamientos, liBebidasA];
 export const nodoA = appendChildren(ulElemA, ul2A)

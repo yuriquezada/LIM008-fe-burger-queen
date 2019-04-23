@@ -2,16 +2,34 @@ body{
 
   margin: auto;
   height: 100vh;
+  background-image: url("https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg");
+  background-position: center
 }
 
 body, .header-1{
   display: flex;
 }
-
+li{
+  list-style: none;
+}
 .burger-queen{
-  width: 55%
+  width: 60%
 }
 
+.header-1{
+  background: #FFFFFF
+}
+.nav-1, .nav-2{
+  background-color: #E8E8E8;
+  color: #7B7B7B;
+  font-family: Lato;
+}
+.nav-1 ul, .nav-2 ul{
+  display: flex
+}
+.nav-1 h4, .nav-2 h5{
+  margin: 0%
+}
 .logo{
   width: 35%;
   display: flex;
@@ -20,10 +38,36 @@ body, .header-1{
 .nav-1{
   width: 65%
 }
+
+.nav-2 ul{
+  margin: 0px
+}
+
+.menu{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px
+}
+
+.product{
+  text-align: center;
+  background: rgba(72, 61, 61, 0.91);
+  border-radius: 20px;
+  width: 350px;
+  color: #FFFFFF;
+  font-family: Lato;
+  font-weight: normal;
+  font-size: 23px;
+}
+.product p{
+  margin: 0px 0px 10px 0px 
+}
+
+
 /* Segunda sección */
 
 .order-list{
-  width: 45%;
+  width: 40%;
   background-color: #4B4949;
   color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
