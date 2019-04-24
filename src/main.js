@@ -13,25 +13,44 @@ firebase.initializeApp(config);
 
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
-
+const orderArray = [];
 showNav(desayuno, nodoD);
 showNav(almuerzo, nodoA);
 
 const showMenu = (element, path) => {
   const sectionElem = document.getElementById('menu');
+
+  const productoTemplate = (product) => {
+    // console.log(product)
+    const article = createElement('article', 'product', `<img src="${product.data.image}" alt=""><p>${product.data.item}</p><p>$ ${product.data.precio}</p>`);
+    article.id = `${product.id}`
+    sectionElem.appendChild(article);
+
+    article.addEventListener('click', () => {
+      orderArray.push('baby')
+      console.log(orderArray);
+    })
+  }
+
   element.addEventListener('click', () => {
     db.collection(path)
       .onSnapshot((querySnapshot) => {
         sectionElem.innerHTML = '';
+        const data = []
         querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          const product = createElement('article', 'product', `<img src="${doc.data().image}" alt=""><p>${doc.data().item}</p><p>$ ${doc.data().precio}</p>`)
-          product.id = `${doc.id}`
-          sectionElem.appendChild(product);
+          data.push({
+            id: doc.id,
+            data: doc.data()
+          })
         });
+        data.forEach(elem => {
+          productoTemplate(elem);
+        })
+
       });
   })
 }
+
 
 showMenu(liSandwich, "menu/desayuno/sandwich");
 showMenu(liBebidasD, "menu/desayuno/bebidas");
@@ -39,11 +58,3 @@ showMenu(liHamburguesa, "menu/almuerzo-cena/hamburguesas");
 showMenu(acompañamientos, "menu/almuerzo-cena/acompañamientos");
 showMenu(liBebidasA, "menu/almuerzo-cena/bebidas");
 
-const orderArray = [];
-
-const pedido = document.getElementById(1)
-pedido.addEventListener('click', () => {
-  orderArray.push(3)
-})
-
-console.log(orderArray);
