@@ -17,16 +17,17 @@ const orderArray = [];
 showNav(desayuno, nodoD);
 showNav(almuerzo, nodoA);
 
+
+const showProduct = (product, tagNameString, classNameString, content, element) => {
+  const child = createElement(tagNameString, classNameString, content);
+  child.id = `${product.id}`
+  element.appendChild(child);
+  return child;
+}
+
+
 const showMenu = (element, path) => {
   const sectionElem = document.getElementById('menu');
-  const sectionOrder= document.getElementById('orderList');
-
-  const showProduct = (product) => {
-    const article = createElement('article', 'product', `<img src="${product.data.image}" alt=""><p>${product.data.item}</p><p>$ ${product.data.precio}</p>`);
-    article.id = `${product.id}`
-    sectionElem.appendChild(article);
-    return article;
-  }
 
   element.addEventListener('click', () => {
     db.collection(path)
@@ -41,12 +42,20 @@ const showMenu = (element, path) => {
         });
         data.forEach(elem => {
           // console.log(product)
-          showProduct(elem).addEventListener('click', () => {
-            orderArray.push('baby');
-            const order = createElement('ul', 'pedido', 'soy el pedido');
-            sectionOrder.appendChild(order);
-            console.log(orderArray);
-          })
+          const article = showProduct(elem, 'article', 'product', `<img src="${elem.data.image}" alt=""><p>${elem.data.item}</p><p>$ ${elem.data.precio}</p>`, sectionElem)
+          article.addEventListener('click', () => {
+              orderArray.push('baby');
+              showProduct(elem, 'li', 'order', `
+              <h3>${elem.data.item}</h3>
+              <section class="numbers-order">
+                <p class="price-order">
+                  $ ${elem.data.precio}
+                </p>
+                <input class="quantity" type="number" id="quantity">
+                <p class="total-price">$ ${elem.data.precio*2}</p>
+              </section>`, productOrderList);
+              console.log(orderArray);
+            })
         })
       });
   })
