@@ -19,17 +19,13 @@ showNav(almuerzo, nodoA);
 
 const showMenu = (element, path) => {
   const sectionElem = document.getElementById('menu');
+  const sectionOrder= document.getElementById('orderList');
 
-  const productoTemplate = (product) => {
-    // console.log(product)
+  const showProduct = (product) => {
     const article = createElement('article', 'product', `<img src="${product.data.image}" alt=""><p>${product.data.item}</p><p>$ ${product.data.precio}</p>`);
     article.id = `${product.id}`
     sectionElem.appendChild(article);
-
-    article.addEventListener('click', () => {
-      orderArray.push('baby')
-      console.log(orderArray);
-    })
+    return article;
   }
 
   element.addEventListener('click', () => {
@@ -44,9 +40,14 @@ const showMenu = (element, path) => {
           })
         });
         data.forEach(elem => {
-          productoTemplate(elem);
+          // console.log(product)
+          showProduct(elem).addEventListener('click', () => {
+            orderArray.push('baby');
+            const order = createElement('ul', 'pedido', 'soy el pedido');
+            sectionOrder.appendChild(order);
+            console.log(orderArray);
+          })
         })
-
       });
   })
 }
