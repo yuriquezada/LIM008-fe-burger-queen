@@ -44,18 +44,20 @@ const showMenu = (element, path) => {
           // console.log(product)
           const article = showProduct(elem, 'article', 'product', `<img src="${elem.data.image}" alt=""><p>${elem.data.item}</p><p>$ ${elem.data.precio}</p>`, sectionElem)
           article.addEventListener('click', () => {
-              orderArray.push('baby');
-              showProduct(elem, 'li', 'order', `
+            orderArray.push('baby');
+            const quantityElem = createElement('p', 'quantity', 3);
+            quantityElem.id = 'quantity';
+            const quantity = quantityElem.innerHTML;
+            showProduct(elem, 'li', 'order', `
               <h3>${elem.data.item}</h3>
               <section class="numbers-order">
                 <p class="price-order">
                   $ ${elem.data.precio}
                 </p>
-                <input class="quantity" type="number" id="quantity">
-                <p class="total-price">$ ${elem.data.precio*2}</p>
-              </section>`, productOrderList);
-              console.log(orderArray);
-            })
+                ${quantity}
+                <p class="total-price">$ ${elem.data.precio * quantity}</p></section>`, productOrderList);
+            console.log(orderArray);
+          })
         })
       });
   })
