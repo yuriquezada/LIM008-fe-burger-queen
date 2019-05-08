@@ -1,4 +1,4 @@
-const appendChildren = (element, childrenArray) => {
+export const appendChildren = (element, childrenArray) => {
   childrenArray.forEach(child => {
     element.appendChild(child);
   });

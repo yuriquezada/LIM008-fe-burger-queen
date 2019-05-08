@@ -1,4 +1,4 @@
-import { nodoA, nodoD, desayuno, almuerzo, showNav, liSandwich, liHamburguesa, liBebidasD, acompañamientos, liBebidasA, createElement } from "./lib/tabs.js";
+import { nodoA, nodoD, desayuno, almuerzo, showNav, liSandwich, liHamburguesa, liBebidasD, acompañamientos, liBebidasA, createElement, appendChildren } from "./lib/tabs.js";
 
 
 var config = {
@@ -45,17 +45,29 @@ const showMenu = (element, path) => {
           const article = showProduct(elem, 'article', 'product', `<img src="${elem.data.image}" alt=""><p>${elem.data.item}</p><p>$ ${elem.data.precio}</p>`, sectionElem)
           article.addEventListener('click', () => {
             orderArray.push('baby');
+
+            const liOrder = appendChildren()
+            liOrder.id = `${elem.id}`
+            element.appendChild(liOrder);
+
+            const h3Order = createElement('h3', 'order-tittle', `${elem.data.item}`);
+            const sectionOrder = createElement('h3', 'numbers-order', '');
+            const pOrder = createElement('p', 'price-order', `${elem.data.precio}`);
             const quantityElem = createElement('p', 'quantity', 3);
-            quantityElem.id = 'quantity';
-            const quantity = quantityElem.innerHTML;
-            showProduct(elem, 'li', 'order', `
-              <h3>${elem.data.item}</h3>
-              <section class="numbers-order">
-                <p class="price-order">
-                  $ ${elem.data.precio}
-                </p>
-                ${quantity}
-                <p class="total-price">$ ${elem.data.precio * quantity}</p></section>`, productOrderList);
+            const pOrderTotal = createElement('p', 'price-order', '');
+            const arr1 = [h3Order, sectionOrder];
+            
+            appendChildren(liOrder,arr1)
+            // const template = `
+            // <h3>${elem.data.item}</h3>
+            // <section class="numbers-order">
+            //   <p class="price-order">$ ${elem.data.precio}</p>
+            //   ${quantity}
+            //   <p class="total-price">$ ${elem.data.precio * 4}</p>
+            // </section>`
+
+
+
             console.log(orderArray);
           })
         })
