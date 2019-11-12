@@ -42,7 +42,7 @@ const showMenu = (element, path) => {
         });
         data.forEach(elem => {
           // console.log(product)
-          const article = showProduct(elem, 'article', 'product', `<img src="${elem.data.image}" alt=""><p>${elem.data.item}</p><p>$ ${elem.data.precio}</p>`, sectionElem)
+          const article = showProduct(elem, 'article', 'product', `<img src="${elem.data.image}" alt=""><p>${elem.data.item}</p><p>$ ${elem.data.price}</p>`, sectionElem)
           article.addEventListener('click', () => {
             orderArray.push('baby');
             const quantityElem = createElement('p', 'quantity', 3);
@@ -52,10 +52,10 @@ const showMenu = (element, path) => {
               <h3>${elem.data.item}</h3>
               <section class="numbers-order">
                 <p class="price-order">
-                  $ ${elem.data.precio}
+                  $ ${elem.data.price}
                 </p>
                 ${quantity}
-                <p class="total-price">$ ${elem.data.precio * quantity}</p></section>`, productOrderList);
+                <p class="total-price">$ ${elem.data.price * quantity}</p></section>`, productOrderList);
             console.log(orderArray);
           })
         })
@@ -64,9 +64,9 @@ const showMenu = (element, path) => {
 }
 
 
-showMenu(liSandwich, "menu/desayuno/sandwich");
-showMenu(liBebidasD, "menu/desayuno/bebidas");
-showMenu(liHamburguesa, "menu/almuerzo-cena/hamburguesas");
-showMenu(acompañamientos, "menu/almuerzo-cena/acompañamientos");
-showMenu(liBebidasA, "menu/almuerzo-cena/bebidas");
+showMenu(liSandwich, "/menu/menuA/sandwich");
+showMenu(liBebidasD, "/menu/menuA/drink");
+showMenu(liHamburguesa, "/menu/menuB/burger");
+showMenu(acompañamientos, "menu/menuB/side-dish");
+showMenu(liBebidasA, "/menu/menuB/drink");
 
